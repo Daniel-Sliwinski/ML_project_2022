@@ -1,0 +1,131 @@
+---
+title: "Machine Learning 1"
+subtitle: "Assessment rules"
+author: "prof. Piotr Wójcik"
+date: "academic year 2021/2022"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true 
+fontsize: 12pt
+---
+
+# General information
+
+In teams of **at most 2 persons students** will work on two practical machine learning projects -- one for **regression** and one for **classification**. Please inform the lecturer about the team members by email [anowicki@wne.uw.edu.pl](mailto:anowicki@wne.uw.edu.pl) **the latest by midnight <span style="color:red">2022-04-20</span>**.
+
+# Datasets
+
+The data is **exactly the same for all teams**.
+
+## `traffic` for **regression**
+
+Your task is to apply various ML algorithms (see the rules below) to build a model **explaining the traffic** on one of the highways for one-hourly intervals based on the **training sample** and generate predictions for **all observations** from the **test sample**.
+
+The dataset includes the following columns:
+
+* `date_time` -- date and time (1 hourly interval)
+* `weather_general` -- general short description of the current weather with the following levels: `Clear`, `Clouds`, `Drizzle`, `Fog`, `Haze`, `Mist`, `Rain`, `Smoke`, `Snow`, `Squall`, `Thunderstorm` 
+* `weather_detailed` -- more detailed description of the current weather with the following levels: `broken clouds`, `drizzle`, `few clouds`, `fog`, `freezing rain`, `haze`, `heavy intensity drizzle`, `heavy intensity rain`, `heavy snow`, `light intensity drizzle`, `light intensity shower rain`, `light rain`, `light rain and snow`, `light shower snow`, `light snow`, `mist`, `moderate rain`, `overcast clouds`, `proximity shower rain`, `proximity thunderstorm`, `proximity thunderstorm with drizzle`, `proximity thunderstorm with rain`, `scattered clouds, shower drizzle`, `shower snow`, `sky is clear`, `sleet`, `smoke`, `snow`, `squalls`, `thunderstorm`, `thunderstorm with drizzle`, `thunderstorm with heavy rain`, `thunderstorm with light drizzle`, `thunderstorm with light rain`, `thunderstorm with rain`, `very heavy rain` 
+* `clouds_coverage` -- percentage of sky covered by the clouds in the hourly interval
+* `temperature` -- average temperature in the hourly interval (in Celsius degrees)
+* `rain_mm` -- amount of rain that occurred in the hourly interval (in mm)
+* `snow_mm` -- amount of snow that occurred in the hourly interval (in mm)
+* `traffic` -- the amount of traffic in the hourly interval (**outcome variable**, only in the training sample)
+
+
+## `drugs` for **classification**
+
+Your task is to apply various ML algorithms (see the rules below) to build a model explaining whether a particular person **consumed cocaine in the last month** based on the **training sample** and generate predictions for **all observations** from the **test sample**.
+
+The dataset includes the following columns:
+
+* `id` -- unique observation identifier
+* `age` -- age group of the person with the following levels: `18-24`, `25-34`, `35-44`, `45-54`, `55-64`, `65+`
+* `gender` -- gender of the person with the following levels: `female`, `male`
+* `education` -- education level of the person with the following levels: `Left school before 16 years`, `Left school at 16 years`, `Left school at 17 years`, `Left school at 18 years`, `Some college or university, no certificate or degree`, `Professional certificate/ diploma`, `University degree`, `Masters degree`, `Doctorate degree`
+* country -- country of current residence of the person with the following levels: `Australia`, `Canada`, `New Zealand`, `Ireland`, `UK`, `USA`, `Other`
+* ethnicity -- ethnicity of the person with the following levels: `Asian`, `Black`, `Mixed-Black/Asian`, `Mixed-White/Asian`, `Mixed-White/Black`,  `White`, `Other`
+* `personality_neuroticism` -- assessment of neuroticism of the person based on psychological tests (0-100)
+* `personality_extraversion` -- assessment of extraversion of the person based on psychological tests (0-100)
+* `personality_openness` -- assessment of openness to experience of the person based on psychological tests (0-100)
+* `personality_agreeableness` -- assessment of agreeableness of the person based on psychological tests (0-100)
+* `personality_conscientiousness` -- assessment of conscientiousness of the person based on psychological tests (0-100)
+* `personality_impulsiveness` -- assessment of impulsiveness of the person based on psychological tests (0-100)
+* `personality_sensation` -- assessment of sensation of the person based on psychological tests (0-100)
+* `consumption_alcohol` -- declared consumption of alcohol with the following levels: `never used`, `used over a decade ago`, `used in last decade`, `used in last year`, `used in last month`, `used in last week`,  `used in last day`
+* `consumption_amphetamines` -- declared consumption of amphetamines with the following levels: `never used`, `used over a decade ago`, `used in last decade`, `used in last year`, `used in last month`, `used in last week`,  `used in last day`
+* `consumption_caffeine` -- declared consumption of caffeine with the following levels: `never used`, `used over a decade ago`, `used in last decade`, `used in last year`, `used in last month`, `used in last week`,  `used in last day`
+* `consumption_cannabis` -- declared consumption of cannabis with the following levels: `never used`, `used over a decade ago`, `used in last decade`, `used in last year`, `used in last month`, `used in last week`,  `used in last day`
+* `consumption_chocolate` -- declared consumption of chocolate with the following levels: `never used`, `used over a decade ago`, `used in last decade`, `used in last year`, `used in last month`, `used in last week`,  `used in last day`        
+* `consumption_mushrooms` -- declared consumption of magic mushrooms with the following levels: `never used`, `used over a decade ago`, `used in last decade`, `used in last year`, `used in last month`, `used in last week`,  `used in last day`
+* `consumption_nicotine` -- declared consumption of nicotine with the following levels: `never used`, `used over a decade ago`, `used in last decade`, `used in last year`, `used in last month`, `used in last week`,  `used in last day`
+* `consumption_cocaine_last_month` -- declared consumption of cocaine in the last month with the following levels: `No`, `Yes` (**outcome variable**, only in the training sample)
+> 
+   
+
+# Various algorithms
+
+For each of the datasets please consider and compare **at least 3 different ML algorithms discussed in the ML1 course**. You can also apply **in addition** any other algorithms you know, but their use should be clearly justified in the final report.
+
+# Selection of the best algorithm
+
+The choice of the final algorithm applied to generate predictions should be **clearly explained** in the final report.
+
+> HINT !!!!!
+> Use the internal division of the training data into train/validation/test samples to make sure that you correcly assess the performance of your models on the new data.
+
+# Performance measure
+
+The performance of predictions will be based on:
+
+1. `MAPE` for the **traffic** dataset
+2. `balanced accuracy` for the **drugs** dataset
+
+Please report the **expected** value of a particular performance measure in your presentation and final report.
+
+# Points
+
+In total **100 points** can be collected -- 50 for each project:
+
+* **presentation** in class (**10 pts** for each project)
+* **written report** in **RMarkdown** or **jupyter** (**30 pts** for each project)
+* **out-of-sample** performance (**10 pts** for each project):
+    * `10` if predictive performance in top quartile group (best), 
+    * `7.5` if predictive performance in the 2nd quartile group (good),
+    * `5` if predictive performance in the 3rd quartile group (below average),
+    * `2.5` if predictive performance in the 4th quartile group (unlucky),
+
+# Presentations
+
+The **presentation** prepared in **RMarkdown** or in **jupyter** has to be submitted by email to the lecturer [anowicki@wne.uw.edu.pl](mailto:anowicki@wne.uw.edu.pl) **until midnight eod <span style="color:red">2022-06-03</span>** (presentation should be submitted both as the source `*.Rmd`/`*.ipynb` file **and also** in the version compiled to `html` or `pdf` format). The codes included in the `Rmd`/`ipynb` file should **load the training data**, **train** the single best algorithm, **apply** this model on the **test data** and save predictions in the `csv` file, which **should be also attached**.
+
+> Do NOT include all the codes which you applied for the best algorithm selection, parameter search, etc. ONLY a simple code for a FINALLY selected algorithm i.e. with the selected set of best performing parameters for each dataset. 
+
+All teams will give presentations (**10 minutes**) informing about the algorithms considered, selection process and their **expected results**. 
+
+Presentations will take place on <span style="color:red">2022-06-07</span>.
+
+> Groups that do NOT present their results in class **will not be graded**. 
+
+# Final report
+
+The **final written report** should be submitted together with the presentation by midnight eod <span style="color:red">2022-06-03</span> (report should be submitted both as the source `*.Rmd`/`*.ipynb` file **and also** in the version compiled to `docx` format). It should include a **detailed explanation** of the finally selected strategy **for each dataset** (algorithms considered, data transformations applied, steps of model selection, hyperparameter values considered, etc.). The assessment of **expected performance of the test data predictions** should also be reported.
+
+> Students who do not submit their final report **before the deadline** will not be graded and will not be allowed to **take the final written exam** in summer session.
+
+# Important dates again
+
+* <span style="color:red">2022-04-20</span> by end of day -- submission of information about the **team members** 
+* <span style="color:red">2022-06-03</span> by 23:59 -- submission of **presentations** and **final reports** in R Markdown **with working R codes** behind,
+* <span style="color:red">2022-06-07</span> -- in-class **presentations**
+
+Each submission should be done **via email** to [anowicki@wne.uw.edu.pl](mailto:anowicki@wne.uw.edu.pl) **before midnight** of the deadline day **if not stated otherwise**.
+
+
+<center><font size="6">GOOD LUCK !!!!!!!!!!!!!!</font></center>
+
+
+
